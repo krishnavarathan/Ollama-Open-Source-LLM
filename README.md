@@ -1,28 +1,27 @@
-<!-- 🦙 Llama 3.2 Local Practice (Ollama + Python) -->
-<!-- 📌 Project Overview -->
+<!-- 🧠 Ollama LLM Practice Project -->
 
-This is my first practice project using Llama 3.2 running locally with Ollama.
+This project demonstrates how to use Ollama with Python to:
+📂 Read grocery data from a file
+🤖 Categorize and sort items using LLaMA 3.2
+💬 Perform chat-based queries
+🌊 Create and use custom models
+⚡ Stream AI responses in real time
 
-The project demonstrates:
+<!-- 🚀 Technologies Used -->
 
-Connecting to a locally running LLM server
+Python 3.x
+Ollama
+LLaMA 3.2 model
 
-Sending prompts using Python
+<!-- 📁 Project Structure -->
 
-Handling streaming responses
-
-Parsing JSON responses
-
-Real-time token streaming output
-
-<!-- 🧠 Architecture -->
-
-Python Script
-↓
-Requests Library
-↓
-http://localhost:11434
-↓
-Ollama Server
-↓
-Llama 3.2 Model
+Ollama-2/
+│
+├── data/
+│ ├── grocery.txt
+│ └── order_grocery.txt
+│
+├── file1.py # Grocery categorization
+├── file2.py # Streaming + chat examples
+├── requirements.txt
+└── README.md

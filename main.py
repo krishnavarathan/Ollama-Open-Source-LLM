@@ -1,36 +1,38 @@
-import requests
-import json
+import ollama
 
-try:
-    url ="http://localhost:11434/api/generate"
+res = ollama.list()
 
-    data = {
-        'model' : 'llama3.2',
-        'prompt': 'Why rainbow have seven colurs?',
-    }
+# print(res)
 
-    res = requests.post(
-        url, json=data, stream= True
-    )
+chat = ollama.chat(
+    model= 'llama3.2',
+    messages=[
+        { 'role':'user', 'content':'why sky is blue'}
+    ],
+    stream=True
+)
 
-    if res.status_code == 200:
-        print("Connection Successful")
-        for sen in res.iter_lines():  
-            # sen returns bytes, need to decode
-            my_data = sen.decode('utf-8')
-            # print(my_data)
-            # print(type(my_data))
 
-            # loading {my_data} in to a json(dict) format 
-            dict_data = json.loads(my_data)
-            # print(dict_data)
-            # print(type(dict_data))
+# ==================================================================================
+# ==== The Ollama Python library's API is designed around the Ollama REST API ====
+# ==================================================================================
 
-            # Extracting the response from the dict{dic_data}
-            print(dict_data['response'], end="", flush=True)
 
-    else:
-        print("Connection faild!")
+# Generate a new model with modified file name
 
-except Exception as e:
-    print(f"Unexpected Error! {e}")
+res = ollama.generate(
+    model="ocean_model", 
+    prompt="why is the ocean so salty?", 
+    stream=True
+)
+# print(res['message'], end="", flush=True)
+
+for chunk in res:
+    print(chunk["response"], end="", flush=True)
+
+# ===================
+# -- delete model ---
+#=====================
+
+# ollama.delete("ocean_model")
+
