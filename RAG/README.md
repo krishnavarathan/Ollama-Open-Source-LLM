@@ -19,9 +19,9 @@ Generate context-aware answers using a local LLM
 <!-- 🧠 Architecture Overview -->
 
 PDF → Text Extraction → Chunking → Embeddings → Chroma DB
-                                        ↓
-                                        Retriever
-                                        ↓
-                                        LLM (Ollama)
-                                        ↓
-                                        Answer
+↓
+Retriever
+↓
+LLM (Ollama)
+↓
+Answer

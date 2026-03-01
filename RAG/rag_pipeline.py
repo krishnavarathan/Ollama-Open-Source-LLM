@@ -15,7 +15,7 @@ from langchain_community.document_loaders import OnlinePDFLoader
 logging.getLogger().setLevel(logging.ERROR)
 warnings.filterwarnings('ignore')
 
-pdf_path = './data/BOI.pdf'
+pdf_path = '.\data\BOI.pdf'
 model = 'llama3.2'
 
 # Local PDF file uploads
