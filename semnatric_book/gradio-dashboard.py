@@ -32,7 +32,6 @@ def retrieve_semantic_recommendations(
         final_top_k: int = 16
 ) -> pd.DataFrame:
     recs=db_books.similarity_search_with_score(query, k=initial_top)
-    # books_list=[int(rec.page_content.strip('"').split()[0]) for rec in recs]
     books_list = [int(rec[0].page_content.strip('"').split()[0]) for rec in recs]
     book_recs=books[books['isbn13'].isin(books_list)].head(final_top_k)
 
@@ -67,7 +66,7 @@ def recommend_books(
         truncated_desc_split=description.split()
         truncated_description=" ".join(truncated_desc_split[:30]) +"..."
 
-        authors_split=row['authors'].split(';')
+        authors_split = str(row['authors']).split(';')
         if len(authors_split) == 2:
             authors_str = f"{authors_split[0]} and {authors_split[1]}"
         elif len(authors_split) > 2:
