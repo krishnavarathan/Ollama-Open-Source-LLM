@@ -2,3 +2,5 @@
 .env
 hug.py
 text-classification.ipynb
+
+Semantic_book_recommender
